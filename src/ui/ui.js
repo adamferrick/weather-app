@@ -7,10 +7,9 @@ export default class Ui {
       Object.entries(selectors).map(([k, v]) => [k, document.querySelector(v)]),
     );
 
-    this.#elements.form.onsubmit = async (e) => {
+    this.#elements.form.onsubmit = (e) => {
       e.preventDefault();
-      const data = await weatherCb(this.#elements.input.value);
-      console.log(data);
+      weatherCb(this.#elements.input.value);
     };
   }
 }
