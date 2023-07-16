@@ -5,7 +5,10 @@ class App {
   #ui;
 
   constructor() {
-    this.#ui = new Ui("form", "input", this.getWeatherData);
+    this.#ui = new Ui(this.getWeatherData, {
+      form: "form",
+      input: "input",
+    });
   }
 
   async getWeatherData(location) {

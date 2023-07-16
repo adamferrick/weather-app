@@ -1,14 +1,14 @@
 export default class Ui {
-  #form;
-  #input;
+  #elements;
 
-  constructor(formSel, inputSel, weatherCb) {
-    this.#form = document.querySelector(formSel);
-    this.#input = document.querySelector(inputSel);
+  constructor(weatherCb, selectors) {
+    this.#elements = Object.fromEntries(
+      Object.entries(selectors).map(([k, v]) => [k, document.querySelector(v)]),
+    );
 
-    this.#form.onsubmit = async (e) => {
+    this.#elements.form.onsubmit = async (e) => {
       e.preventDefault();
-      const data = await weatherCb(this.#input.value);
+      const data = await weatherCb(this.#elements.input.value);
       console.log(data);
     };
   }
