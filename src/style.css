@@ -10,6 +10,7 @@
     margin: 15px;
     padding: 10px;
     width: 500px;
+    color: var(--foreground);
     cursor: default;
     background-color: var(--background);
     border-radius: 10px;
@@ -44,4 +45,8 @@ input {
     background-color: var(--background-alt2);
     font-size: 20px;
     padding-left: 10px;
+}
+
+#weather-text div {
+    margin: 15px;
 }

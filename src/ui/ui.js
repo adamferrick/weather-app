@@ -12,4 +12,12 @@ export default class Ui {
       weatherCb(this.#elements.input.value);
     };
   }
+
+  fillText(location, last_updated, temp, humidity, wind) {
+    this.#elements.location.textContent = `${location.name}, ${location.region}, ${location.country}`;
+    this.#elements.last_updated.textContent = `${last_updated}`;
+    this.#elements.temp.textContent = `${temp.c}deg Celsius, ${temp.f}deg Fahrenheit`;
+    this.#elements.humidity.textContent = `${humidity}`;
+    this.#elements.wind.textContent = `${wind.mph}mph ${wind.dir} (${wind.kph}kph)`;
+  }
 }
