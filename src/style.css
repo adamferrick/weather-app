@@ -4,6 +4,16 @@
     --background-alt2: #485251;
     --foreground: #f6f6f6;
     --foreground-alt: #396c9e;
+
+    --animation: 0.2s ease-in-out;
+}
+
+body {
+    padding: 1px;
+    margin: 0px;
+    width: 99vw;
+    height: 99vh;
+    background: linear-gradient(to bottom, var(--background-alt1), var(--background));
 }
 
 .box {
@@ -15,15 +25,14 @@
     background-color: var(--background);
     border-radius: 10px;
     font-size: 20px;
-    border-left: 6px solid var(--foreground-alt);
+    opacity: 60%;
+    border-left: 0px solid var(--foreground-alt);
+    transition: opacity var(--animation), border-left var(--animation);
 }
 
-body {
-    padding: 1px;
-    margin: 0px;
-    width: 99vw;
-    height: 99vh;
-    background: linear-gradient(to bottom, var(--background-alt1), var(--background));
+.box:hover, .box:focus-within {
+    opacity: 100%;
+    border-left: 6px solid var(--foreground-alt);
 }
 
 form {
