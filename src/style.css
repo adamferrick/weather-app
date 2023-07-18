@@ -65,3 +65,7 @@ input {
 #weather-text div {
     margin: 15px;
 }
+
+#mercury #column {
+    transition: height var(--animation), y var(--animation);
+}
