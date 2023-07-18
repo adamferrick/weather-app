@@ -1,8 +1,11 @@
 import Thermometer from "./thermometer.js";
+import Background from "./background.js";
+import mountainsRaw from "./mountains.svg";
 
 export default class Ui {
   #elements;
   #thermometer;
+  #background;
 
   constructor(weatherCb, selectors) {
     // create a new object of elements from the passed object of selectors
@@ -16,6 +19,9 @@ export default class Ui {
     };
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
+    this.#background = new Background(this.#elements.background, mountainsRaw);
+
+    this.#background.draw();
   }
 
   displayInfo(location, last_updated, temp, humidity, wind) {

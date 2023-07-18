@@ -25,6 +25,7 @@ class App {
       humidity: "#humidity span",
       wind: "#wind span",
       thermometer: "#thermometer",
+      background: "#background",
     });
   }
 

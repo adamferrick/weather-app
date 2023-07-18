@@ -13,7 +13,6 @@ body {
     margin: 0px;
     width: 99vw;
     height: 99vh;
-    background: linear-gradient(to bottom, var(--background-alt1), var(--background));
 }
 
 .box {
@@ -68,4 +67,11 @@ input {
 
 #mercury #column {
     transition: height var(--animation), y var(--animation);
+}
+
+#background {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: -1;
 }
