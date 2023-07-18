@@ -30,7 +30,7 @@ class App {
 
   async update(location) {
     const data = await getWeatherData(location);
-    this.#ui.fillText(
+    this.#ui.displayInfo(
       {
         name: data.location.name,
         region: data.location.region,
