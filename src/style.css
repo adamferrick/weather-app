@@ -57,6 +57,11 @@ input {
     padding-left: 10px;
 }
 
+#weather-information {
+    display: flex;
+    justify-content: space-between;
+}
+
 #weather-text div {
     margin: 15px;
 }

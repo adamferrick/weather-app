@@ -1,5 +1,8 @@
+import Thermometer from "./thermometer.js";
+
 export default class Ui {
   #elements;
+  #thermometer;
 
   constructor(weatherCb, selectors) {
     // create a new object of elements from the passed object of selectors
@@ -11,6 +14,8 @@ export default class Ui {
       e.preventDefault();
       weatherCb(this.#elements.input.value);
     };
+
+    this.#thermometer = new Thermometer(this.#elements.thermometer);
   }
 
   fillText(location, last_updated, temp, humidity, wind) {

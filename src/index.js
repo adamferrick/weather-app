@@ -24,6 +24,7 @@ class App {
       temp: "#temp span",
       humidity: "#humidity span",
       wind: "#wind span",
+      thermometer: "#thermometer",
     });
   }
 
