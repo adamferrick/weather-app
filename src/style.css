@@ -65,6 +65,11 @@ input {
     margin: 15px;
 }
 
+#mercury {
+    fill: var(--foreground-alt);
+    transition: fill var(--animation);
+}
+
 #mercury #column {
     transition: height var(--animation), y var(--animation);
 }
