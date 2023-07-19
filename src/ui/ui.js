@@ -8,14 +8,11 @@ const baseBlue = Color("#396c9e");
 const baseRed = Color("#b3451d");
 const secondsInDay = 86400;
 
-
 function getColor(time) {
   const date = new Date(time);
-  const numSeconds = date.getSeconds() + 60 * date.getMinutes() + 60 * 60 * date.getHours();
-  return baseRed.mix(
-    baseBlue,
-    Math.abs(0.5 - numSeconds / secondsInDay) * 2,
-  );
+  const numSeconds =
+    date.getSeconds() + 60 * date.getMinutes() + 60 * 60 * date.getHours();
+  return baseRed.mix(baseBlue, Math.abs(0.5 - numSeconds / secondsInDay) * 2);
 }
 
 export default class Ui {
@@ -48,6 +45,9 @@ export default class Ui {
     this.#elements.wind.textContent = `${wind.mph}mph ${wind.dir} (${wind.kph}kph)`;
     this.#thermometer.fillMercury(temp.c);
 
-    document.documentElement.style.setProperty("--foreground-alt", getColor(last_updated));
+    document.documentElement.style.setProperty(
+      "--foreground-alt",
+      getColor(last_updated),
+    );
   }
 }
