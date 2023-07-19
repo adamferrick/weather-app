@@ -4,23 +4,23 @@ import Thermometer from "./thermometer.js";
 import Background from "./background.js";
 import mountainsRaw from "./mountains.svg";
 
-const baseBlue = Color("#396c9e");
-const baseRed = Color("#b3451d");
 const secondsInDay = 86400;
 
-function getColor(time) {
-  const date = new Date(time);
+function heightOfSun(dateRaw) {
+  const date = new Date(dateRaw);
   const numSeconds =
     date.getSeconds() + 60 * date.getMinutes() + 60 * 60 * date.getHours();
-  return baseRed.mix(baseBlue, Math.abs(0.5 - numSeconds / secondsInDay) * 2);
+  return Math.abs(0.5 - numSeconds / secondsInDay) * 2;
 }
 
 export default class Ui {
   #elements;
   #thermometer;
   #background;
+  #nightColor;
+  #dayColor;
 
-  constructor(weatherCb, selectors) {
+  constructor(nightColor, dayColor, weatherCb, selectors) {
     // create a new object of elements from the passed object of selectors
     this.#elements = Object.fromEntries(
       Object.entries(selectors).map(([k, v]) => [k, document.querySelector(v)]),
@@ -30,6 +30,9 @@ export default class Ui {
       e.preventDefault();
       weatherCb(this.#elements.input.value);
     };
+
+    this.#nightColor = Color(nightColor);
+    this.#dayColor = Color(dayColor);
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
     this.#background = new Background(this.#elements.background, mountainsRaw);
@@ -47,7 +50,7 @@ export default class Ui {
 
     document.documentElement.style.setProperty(
       "--foreground-alt",
-      getColor(last_updated),
+      this.#dayColor.mix(this.#nightColor, heightOfSun(last_updated)),
     );
   }
 }

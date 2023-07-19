@@ -16,7 +16,7 @@ class App {
   #ui;
 
   constructor() {
-    this.#ui = new Ui((l) => this.update(l), {
+    this.#ui = new Ui("#396c9e", "#b3451d", (l) => this.update(l), {
       form: "form",
       input: "input",
       location: "#location span",
