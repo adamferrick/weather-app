@@ -1,8 +1,7 @@
 import Color from "color";
 
 import Thermometer from "./thermometer.js";
-import Background from "./background.js";
-import mountainsRaw from "./mountains.svg";
+import { Mountains } from "./background.js";
 
 const secondsInDay = 86400;
 
@@ -35,9 +34,7 @@ export default class Ui {
     this.#dayColor = Color(dayColor);
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
-    this.#background = new Background(this.#elements.background, mountainsRaw);
-
-    this.#background.draw();
+    this.#background = new Mountains(this.#elements.background);
   }
 
   updateInfo(location, last_updated, temp, humidity, wind) {

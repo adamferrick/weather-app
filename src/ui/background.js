@@ -1,12 +1,16 @@
-export default class Background {
-  #backgroundElement;
-  #rawSvg;
-  constructor(element, rawSvg) {
-    this.#backgroundElement = element;
-    this.#rawSvg = rawSvg;
-  }
+import mountainsRaw from "./mountains.svg";
 
-  draw() {
-    this.#backgroundElement.innerHTML = this.#rawSvg;
+class Background {
+  #el;
+
+  constructor(el, rawSvg) {
+    this.#el = el;
+    this.#el.innerHTML = rawSvg;
+  }
+}
+
+export class Mountains extends Background {
+  constructor(el) {
+    super(el, mountainsRaw);
   }
 }
