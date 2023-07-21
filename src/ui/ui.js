@@ -46,9 +46,13 @@ export default class Ui {
     this.#elements.wind.textContent = `${wind.mph}mph ${wind.dir} (${wind.kph}kph)`;
     this.#thermometer.fillMercury(temp.c);
 
+    const color = this.#dayColor.mix(this.#nightColor, heightOfSun(last_updated));
+
     document.documentElement.style.setProperty(
       "--foreground-alt",
-      this.#dayColor.mix(this.#nightColor, heightOfSun(last_updated)),
+      color,
     );
+
+    this.#background.changeColor(color);
   }
 }
