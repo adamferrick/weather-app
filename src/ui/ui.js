@@ -19,7 +19,7 @@ export default class Ui {
   #nightColor;
   #dayColor;
 
-  constructor(nightColor, dayColor, weatherCb, selectors) {
+  constructor(baseColor, nightColor, dayColor, weatherCb, selectors) {
     // create a new object of elements from the passed object of selectors
     this.#elements = Object.fromEntries(
       Object.entries(selectors).map(([k, v]) => [k, document.querySelector(v)]),
@@ -34,7 +34,8 @@ export default class Ui {
     this.#dayColor = Color(dayColor);
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
-    this.#background = new Mountains(this.#elements.background);
+    this.#background = new Mountains(this.#elements.background, baseColor);
+    this.#background.changeColor(new Color(nightColor));
   }
 
   updateInfo(location, last_updated, temp, humidity, wind) {

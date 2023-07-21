@@ -1,16 +1,27 @@
+import Color from "color";
 import mountainsRaw from "./mountains.svg";
 
 class Background {
-  #el;
+  el;
+  base;
 
-  constructor(el, rawSvg) {
-    this.#el = el;
-    this.#el.innerHTML = rawSvg;
+  constructor(el, base, rawSvg) {
+    this.el = el;
+    this.el.innerHTML = rawSvg;
+    this.base = new Color(base);
   }
 }
 
 export class Mountains extends Background {
-  constructor(el) {
-    super(el, mountainsRaw);
+  #sky;
+
+  constructor(el, base) {
+    super(el, base, mountainsRaw);
+
+    this.#sky = this.el.querySelector("#sky");
+  }
+
+  changeColor(color) {
+    this.#sky.style.fill = color.mix(this.base, 0.8);
   }
 }
