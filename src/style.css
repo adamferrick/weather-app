@@ -80,3 +80,7 @@ input {
     position: absolute;
     z-index: -1;
 }
+
+#background * {
+    transition: fill var(--animation);
+}
