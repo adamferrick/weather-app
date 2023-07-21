@@ -22,6 +22,6 @@ export class Mountains extends Background {
   }
 
   changeColor(color) {
-    this.#sky.style.fill = color.mix(this.base, 0.8);
+    this.#sky.style.fill = color.mix(this.base, 0.95);
   }
 }
