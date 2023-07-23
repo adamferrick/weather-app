@@ -22,7 +22,12 @@ export class Mountains extends Background {
   constructor(el, base) {
     super(el, base, mountainsRaw);
 
-    this.#sky = this.el.querySelector("#sky");
+    this.#sky = document.createElement("div");
+    this.#sky.style.width = "100vw";
+    this.#sky.style.height = "100vh";
+    this.#sky.style.zIndex = "inherit";
+    this.#sky.style.position = "fixed";
+    el.prepend(this.#sky);
     this.#backShadow = this.el.querySelector("#back-shadow");
     this.#backFace = this.el.querySelector("#back-face");
     this.#frontShadow = this.el.querySelector("#front-shadow");
@@ -30,7 +35,7 @@ export class Mountains extends Background {
   }
 
   changeColor(color) {
-    this.#sky.style.fill = color.mix(this.base, 0.95);
+    this.#sky.style.backgroundColor = color.mix(this.base, 0.95);
     this.#backShadow.style.fill = color.mix(this.base, 0.9);
     this.#backFace.style.fill = color.mix(this.base, 0.6);
     this.#frontShadow.style.fill = color.mix(this.base, 0.85);
