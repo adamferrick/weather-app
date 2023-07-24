@@ -37,7 +37,11 @@ export class Mountains extends Background {
   }
 
   changeColor(color) {
-    fadeBackground(this.#sky, `linear-gradient(to bottom, ${color.mix(this.base, 0.7)}, ${this.base})`, 0.2);
+    fadeBackground(
+      this.#sky,
+      `linear-gradient(to bottom, ${color.mix(this.base, 0.7)}, ${this.base})`,
+      0.2,
+    );
     this.#backShadow.style.fill = color.mix(this.base, 0.9);
     this.#backFace.style.fill = color.mix(this.base, 0.6);
     this.#frontShadow.style.fill = color.mix(this.base, 0.85);
@@ -48,8 +52,8 @@ export class Mountains extends Background {
 function fadeBackground(element, newBackground, dur) {
   let temp = element.cloneNode(true);
   element.style.background = newBackground;
-  temp.addEventListener('transitionend', (e) => e.target.remove());
+  temp.addEventListener("transitionend", (e) => e.target.remove());
   temp.style.transition = `opacity ${dur}s ease-in-out`;
   element.after(temp);
-  setTimeout(() => temp.style.opacity = 0);
+  setTimeout(() => (temp.style.opacity = 0));
 }
