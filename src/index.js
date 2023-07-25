@@ -16,7 +16,7 @@ class App {
   #ui;
 
   constructor() {
-    this.#ui = new Ui((l) => this.update(l), {
+    this.#ui = new Ui("#0f141a", "#396c9e", "#b3451d", (l) => this.update(l), {
       form: "form",
       input: "input",
       location: "#location span",
@@ -31,7 +31,7 @@ class App {
 
   async update(location) {
     const data = await getWeatherData(location);
-    this.#ui.displayInfo(
+    this.#ui.updateInfo(
       {
         name: data.location.name,
         region: data.location.region,
