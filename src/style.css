@@ -74,7 +74,7 @@ input {
     transition: height var(--animation), y var(--animation);
 }
 
-#background {
+.background {
     top: 0px;
     left: 0px;
     position: absolute;
@@ -83,4 +83,10 @@ input {
 
 #background * {
     transition: fill var(--animation);
+}
+
+.slider-navigation {
+    color: var(--foreground);
+    background-color: var(--background);
+    margin: auto;
 }

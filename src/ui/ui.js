@@ -1,6 +1,7 @@
 import Color from "color";
 
 import Thermometer from "./thermometer.js";
+import Slider from "./slider.js";
 import { Mountains } from "./background.js";
 
 const secondsInDay = 86400;
@@ -16,6 +17,7 @@ export default class Ui {
   #elements;
   #thermometer;
   #background;
+  #slider;
   #nightColor;
   #dayColor;
 
@@ -34,8 +36,13 @@ export default class Ui {
     this.#dayColor = Color(dayColor);
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
-    this.#background = new Mountains(this.#elements.background, baseColor);
+
+    const image = document.createElement("div");
+    image.className = "background";
+    this.#background = new Mountains(image, baseColor);
     this.#background.changeColor(new Color(nightColor));
+    this.#slider = new Slider(this.#elements.slider);
+    this.#slider.addImage(image);
   }
 
   updateInfo(location, last_updated, temp, humidity, wind) {
