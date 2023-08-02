@@ -85,10 +85,13 @@ input {
     transition: fill var(--animation);
 }
 
+#slider {
+    display: flex;
+    justify-content: center;
+}
+
 .slider-navigation {
     color: var(--foreground);
     background-color: var(--background);
     margin: auto;
-    display: flex;
-    justify-content: center;
 }
