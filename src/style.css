@@ -89,4 +89,6 @@ input {
     color: var(--foreground);
     background-color: var(--background);
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
