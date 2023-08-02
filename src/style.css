@@ -86,8 +86,7 @@ input {
 }
 
 #slider {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .slider-navigation {
