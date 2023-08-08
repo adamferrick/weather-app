@@ -37,6 +37,15 @@ class Sky {
   }
 }
 
+function fadeBackground(element, newBackground, dur) {
+  let temp = element.cloneNode(true);
+  element.style.background = newBackground;
+  temp.addEventListener("transitionend", (e) => e.target.remove());
+  temp.style.transition = `opacity ${dur}s ease-in-out`;
+  element.after(temp);
+  setTimeout(() => (temp.style.opacity = 0));
+}
+
 export class Mountains extends Background {
   #sky;
   #backShadow;
@@ -63,15 +72,6 @@ export class Mountains extends Background {
     this.#frontShadow.style.fill = color.mix(this.base, 0.85);
     this.#frontFace.style.fill = color.mix(this.base, 0.55);
   }
-}
-
-function fadeBackground(element, newBackground, dur) {
-  let temp = element.cloneNode(true);
-  element.style.background = newBackground;
-  temp.addEventListener("transitionend", (e) => e.target.remove());
-  temp.style.transition = `opacity ${dur}s ease-in-out`;
-  element.after(temp);
-  setTimeout(() => (temp.style.opacity = 0));
 }
 
 export class Planets extends Background {
