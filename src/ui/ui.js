@@ -2,7 +2,7 @@ import Color from "color";
 
 import Thermometer from "./thermometer.js";
 import Slider from "./slider.js";
-import { Mountains } from "./background.js";
+import { Mountains, Planets } from "./background.js";
 
 const secondsInDay = 86400;
 
@@ -39,7 +39,7 @@ export default class Ui {
 
     const image = document.createElement("div");
     image.className = "background";
-    this.#background = new Mountains(image, baseColor);
+    this.#background = new Planets(image, baseColor);
     this.#background.changeColor(new Color(nightColor));
     this.#slider = new Slider(this.#elements.slider);
     this.#slider.addImage(image);

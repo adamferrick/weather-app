@@ -1,5 +1,6 @@
 import Color from "color";
 import mountainsRaw from "./mountains.svg";
+import planetsRaw from "./planets.svg";
 
 class Background {
   el;
@@ -56,4 +57,27 @@ function fadeBackground(element, newBackground, dur) {
   temp.style.transition = `opacity ${dur}s ease-in-out`;
   element.after(temp);
   setTimeout(() => (temp.style.opacity = 0));
+}
+
+export class Planets extends Background {
+  #sky;
+  constructor(el, base) {
+    super(el, base, planetsRaw);
+    this.#sky = document.createElement("div");
+    this.#sky.style.width = "100vw";
+    this.#sky.style.height = "100vh";
+    this.#sky.style.zIndex = "inherit";
+    this.#sky.style.position = "fixed";
+    this.#sky.style.top = "0px";
+    this.#sky.style.left = "0px";
+    el.prepend(this.#sky);
+  }
+
+  changeColor(color) {
+    fadeBackground(
+      this.#sky,
+      `linear-gradient(to bottom, ${color.mix(this.base, 0.7)}, ${this.base})`,
+      0.2,
+    );
+  }
 }
