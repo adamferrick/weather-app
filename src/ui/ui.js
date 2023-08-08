@@ -16,7 +16,7 @@ function heightOfSun(dateRaw) {
 export default class Ui {
   #elements;
   #thermometer;
-  #background;
+  #backgrounds;
   #slider;
   #nightColor;
   #dayColor;
@@ -37,12 +37,18 @@ export default class Ui {
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
 
-    const image = document.createElement("div");
-    image.className = "background";
-    this.#background = new Planets(image, baseColor);
-    this.#background.changeColor(new Color(nightColor));
+    const backgroundEls = new Array(2).fill().map(() => {
+      const el = document.createElement("div");
+      el.className = "background";
+      return el;
+    });
+    this.#backgrounds = [
+      new Mountains(backgroundEls[0], baseColor),
+      new Planets(backgroundEls[1], baseColor),
+    ];
+    this.#backgrounds.forEach(e => e.changeColor(new Color(nightColor)));
     this.#slider = new Slider(this.#elements.slider);
-    this.#slider.addImage(image);
+    backgroundEls.forEach(e => this.#slider.addImage(e));
   }
 
   updateInfo(location, last_updated, temp, humidity, wind) {
@@ -60,6 +66,6 @@ export default class Ui {
 
     document.documentElement.style.setProperty("--foreground-alt", color);
 
-    this.#background.changeColor(color);
+    this.#backgrounds.forEach(e => e.changeColor(color));
   }
 }
