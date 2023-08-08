@@ -2,15 +2,13 @@ import Color from "color";
 import mountainsRaw from "./mountains.svg";
 import planetsRaw from "./planets.svg";
 
-class Background {
-  el;
-  base;
-
-  constructor(el, base, rawSvg) {
-    this.el = el;
-    this.el.innerHTML = rawSvg;
-    this.base = new Color(base);
-  }
+function fadeBackground(element, newBackground, dur) {
+  let temp = element.cloneNode(true);
+  element.style.background = newBackground;
+  temp.addEventListener("transitionend", (e) => e.target.remove());
+  temp.style.transition = `opacity ${dur}s ease-in-out`;
+  element.after(temp);
+  setTimeout(() => (temp.style.opacity = 0));
 }
 
 class Sky {
@@ -37,13 +35,15 @@ class Sky {
   }
 }
 
-function fadeBackground(element, newBackground, dur) {
-  let temp = element.cloneNode(true);
-  element.style.background = newBackground;
-  temp.addEventListener("transitionend", (e) => e.target.remove());
-  temp.style.transition = `opacity ${dur}s ease-in-out`;
-  element.after(temp);
-  setTimeout(() => (temp.style.opacity = 0));
+class Background {
+  el;
+  base;
+
+  constructor(el, base, rawSvg) {
+    this.el = el;
+    this.el.innerHTML = rawSvg;
+    this.base = new Color(base);
+  }
 }
 
 export class Mountains extends Background {
