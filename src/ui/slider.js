@@ -25,5 +25,10 @@ export default class Slider {
   addImage(imageEl) {
     this.#imageSlider.appendChild(imageEl);
     this.#images.push(imageEl)
+
+    const dot = document.createElement('button');
+    dot.className = 'dot';
+    dot.innerText = 'o';
+    this.#dots.appendChild(dot);
   }
 }
