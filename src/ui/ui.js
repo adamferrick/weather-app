@@ -49,6 +49,7 @@ export default class Ui {
     this.#backgrounds.forEach(e => e.changeColor(new Color(nightColor)));
     this.#slider = new Slider(this.#elements.slider);
     backgroundEls.forEach(e => this.#slider.addImage(e));
+    this.#slider.displayImage(0);
   }
 
   updateInfo(location, last_updated, temp, humidity, wind) {

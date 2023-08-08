@@ -32,6 +32,7 @@ export default class Slider {
     dot.className = 'dot';
     dot.innerText = 'o';
     const i = this.#images.length - 1;
+    this.#images[i].style.opacity = '0';
     dot.onclick = () => this.displayImage(i);
     this.#dots.appendChild(dot);
   }
