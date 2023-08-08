@@ -19,6 +19,7 @@ export default class Slider {
     prevButton.innerText = '<-';
     const nextButton = document.createElement('button');
     nextButton.innerText = '->';
+    nextButton.onclick = () => this.next();
 
     sliderNavigation.append(prevButton, this.#dots, nextButton);
     el.append(this.#imageSlider, sliderNavigation);
@@ -43,5 +44,9 @@ export default class Slider {
     this.#dots.children[this.#displayedImage].innerText = 'o';
     this.#dots.children[i].innerText = '.';
     this.#displayedImage = i;
+  }
+
+  next() {
+    this.displayImage(this.#displayedImage < this.#images.length - 1 ? this.#displayedImage + 1 : 0);
   }
 }
