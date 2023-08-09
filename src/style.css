@@ -45,6 +45,11 @@ button {
     color: var(--foreground);
 }
 
+button svg {
+    width: 24px;
+    height: 24px;
+}
+
 input {
     flex: 1 1 auto;
     outline: none;
