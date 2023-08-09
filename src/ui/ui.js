@@ -37,18 +37,14 @@ export default class Ui {
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
 
-    const backgroundEls = new Array(2).fill().map(() => {
+    this.#slider = new Slider(this.#elements.slider);
+    this.#backgrounds = [Mountains, Planets].map(b => {
       const el = document.createElement("div");
       el.className = "background";
-      return el;
+      this.#slider.addImage(el);
+      return new b(el, baseColor);
     });
-    this.#backgrounds = [
-      new Mountains(backgroundEls[0], baseColor),
-      new Planets(backgroundEls[1], baseColor),
-    ];
     this.#backgrounds.forEach(e => e.changeColor(new Color(nightColor)));
-    this.#slider = new Slider(this.#elements.slider);
-    backgroundEls.forEach(e => this.#slider.addImage(e));
     this.#slider.displayImage(0);
   }
 
