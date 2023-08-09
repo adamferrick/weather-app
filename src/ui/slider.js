@@ -1,3 +1,5 @@
+import leftRaw from './left.svg';
+
 export default class Slider {
   #imageSlider;
   #images;
@@ -16,7 +18,7 @@ export default class Slider {
     this.#dots = document.createElement('span');
 
     const prevButton = document.createElement('button');
-    prevButton.innerText = '<-';
+    prevButton.innerHTML = leftRaw;
     prevButton.onclick = () => this.prev();
     const nextButton = document.createElement('button');
     nextButton.innerText = '->';
