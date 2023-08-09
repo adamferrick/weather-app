@@ -1,5 +1,6 @@
 import leftRaw from './left.svg';
 import rightRaw from './right.svg';
+import dotRaw from './dot.svg';
 
 export default class Slider {
   #imageSlider;
@@ -35,7 +36,7 @@ export default class Slider {
 
     const dot = document.createElement('button');
     dot.className = 'dot';
-    dot.innerText = 'o';
+    dot.innerHTML = dotRaw;
     const i = this.#images.length - 1;
     this.#images[i].style.opacity = '0';
     dot.onclick = () => this.displayImage(i);
@@ -45,8 +46,8 @@ export default class Slider {
   displayImage(i) {
     this.#images[this.#displayedImage].style.opacity = '0';
     this.#images[i].style.opacity = '1';
-    this.#dots.children[this.#displayedImage].innerText = 'o';
-    this.#dots.children[i].innerText = '.';
+    this.#dots.children[this.#displayedImage].classList.remove('displayed');
+    this.#dots.children[i].classList.add('displayed');
     this.#displayedImage = i;
   }
 

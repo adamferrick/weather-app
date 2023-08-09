@@ -98,3 +98,7 @@ input {
     color: var(--foreground);
     margin: auto;
 }
+
+.dot.displayed circle {
+    fill: var(--background-alt2);
+}
