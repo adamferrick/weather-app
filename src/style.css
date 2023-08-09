@@ -95,8 +95,29 @@ input {
 }
 
 .slider-navigation {
-    color: var(--foreground);
+    color: var(--background-alt2);
     margin: auto;
+}
+
+.slider-navigation button {
+    opacity: 60%;
+}
+
+.slider-navigation button:hover {
+    opacity: 100%;
+}
+
+.slider-navigation button {
+    outline: none;
+}
+
+.slider-navigation svg {
+    width: 10px;
+    height: 10px;
+}
+
+.slider-navigation circle, .slider-navigation path {
+    stroke: var(--background-alt2) !important;
 }
 
 .dot.displayed circle {
