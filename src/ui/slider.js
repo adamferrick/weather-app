@@ -1,4 +1,5 @@
 import leftRaw from './left.svg';
+import rightRaw from './right.svg';
 
 export default class Slider {
   #imageSlider;
@@ -21,7 +22,7 @@ export default class Slider {
     prevButton.innerHTML = leftRaw;
     prevButton.onclick = () => this.prev();
     const nextButton = document.createElement('button');
-    nextButton.innerText = '->';
+    nextButton.innerHTML = rightRaw;
     nextButton.onclick = () => this.next();
 
     sliderNavigation.append(prevButton, this.#dots, nextButton);
