@@ -96,6 +96,5 @@ input {
 
 .slider-navigation {
     color: var(--foreground);
-    background-color: var(--background);
     margin: auto;
 }
