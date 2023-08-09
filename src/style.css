@@ -101,15 +101,12 @@ input {
 }
 
 .slider-navigation button {
+    outline: none;
     opacity: 60%;
 }
 
 .slider-navigation button:hover {
     opacity: 100%;
-}
-
-.slider-navigation button {
-    outline: none;
 }
 
 .slider-navigation svg {
