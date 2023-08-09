@@ -13,6 +13,7 @@ body {
     margin: 0px;
     width: 99vw;
     height: 99vh;
+    background-color: var(--background);
 }
 
 .box {
@@ -122,4 +123,8 @@ input {
 
 .dot.displayed circle {
     fill: var(--background-alt2);
+}
+
+.background {
+    transition: opacity var(--animation);
 }
