@@ -1,8 +1,8 @@
 import Color from "color";
 
-import Thermometer from "./thermometer.js";
-import Slider from "./slider.js";
-import { Mountains, Planets } from "./background.js";
+import Thermometer from "./thermometer/thermometer.js";
+import Slider from "./slider/slider.js";
+import { Mountains, Planets } from "./background/background.js";
 
 const secondsInDay = 86400;
 
