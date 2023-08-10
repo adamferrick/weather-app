@@ -1,7 +1,8 @@
 import Color from "color";
 
 import Thermometer from "./thermometer.js";
-import { Mountains } from "./background.js";
+import Slider from "./slider.js";
+import { Mountains, Planets } from "./background.js";
 
 const secondsInDay = 86400;
 
@@ -15,7 +16,8 @@ function heightOfSun(dateRaw) {
 export default class Ui {
   #elements;
   #thermometer;
-  #background;
+  #backgrounds;
+  #slider;
   #nightColor;
   #dayColor;
 
@@ -34,8 +36,16 @@ export default class Ui {
     this.#dayColor = Color(dayColor);
 
     this.#thermometer = new Thermometer(this.#elements.thermometer);
-    this.#background = new Mountains(this.#elements.background, baseColor);
-    this.#background.changeColor(new Color(nightColor));
+
+    this.#slider = new Slider(this.#elements.slider);
+    this.#backgrounds = [Mountains, Planets].map(b => {
+      const el = document.createElement("div");
+      el.className = "background";
+      this.#slider.addImage(el);
+      return new b(el, baseColor);
+    });
+    this.#backgrounds.forEach(e => e.changeColor(new Color(nightColor)));
+    this.#slider.displayImage(0);
   }
 
   updateInfo(location, last_updated, temp, humidity, wind) {
@@ -53,6 +63,6 @@ export default class Ui {
 
     document.documentElement.style.setProperty("--foreground-alt", color);
 
-    this.#background.changeColor(color);
+    this.#backgrounds.forEach(e => e.changeColor(color));
   }
 }

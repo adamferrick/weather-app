@@ -13,6 +13,7 @@ body {
     margin: 0px;
     width: 99vw;
     height: 99vh;
+    background-color: var(--background);
 }
 
 .box {
@@ -45,6 +46,11 @@ button {
     color: var(--foreground);
 }
 
+button svg {
+    width: 24px;
+    height: 24px;
+}
+
 input {
     flex: 1 1 auto;
     outline: none;
@@ -74,7 +80,7 @@ input {
     transition: height var(--animation), y var(--animation);
 }
 
-#background {
+.background {
     top: 0px;
     left: 0px;
     position: absolute;
@@ -83,4 +89,39 @@ input {
 
 #background * {
     transition: fill var(--animation);
+}
+
+#slider {
+    text-align: center;
+}
+
+.slider-navigation {
+    color: var(--background-alt2);
+    margin: auto;
+}
+
+.slider-navigation button {
+    outline: none;
+    opacity: 60%;
+}
+
+.slider-navigation button:hover {
+    opacity: 100%;
+}
+
+.slider-navigation svg {
+    width: 10px;
+    height: 10px;
+}
+
+.slider-navigation circle, .slider-navigation path {
+    stroke: var(--background-alt2) !important;
+}
+
+.dot.displayed circle {
+    fill: var(--background-alt2);
+}
+
+.background {
+    transition: opacity var(--animation);
 }
