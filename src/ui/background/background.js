@@ -26,7 +26,7 @@ class Sky {
     this.#base = new Color(base);
   }
 
-  changeColor(color) {
+  changeColor(color = this.#base) {
     fadeBackground(
       this.#el,
       `linear-gradient(to bottom, ${color.mix(this.#base, 0.7)}, ${this.#base})`,
@@ -63,9 +63,10 @@ export class Mountains extends Background {
     this.#backFace = this.el.querySelector("#back-face");
     this.#frontShadow = this.el.querySelector("#front-shadow");
     this.#frontFace = this.el.querySelector("#front-face");
+    this.update();
   }
 
-  changeColor(color) {
+  update(color = this.base) {
     this.#sky.changeColor(color);
     this.#backShadow.style.fill = color.mix(this.base, 0.9);
     this.#backFace.style.fill = color.mix(this.base, 0.6);
@@ -102,9 +103,10 @@ export class Planets extends Background {
       face: this.el.querySelector("#path7408"),
       shadow: this.el.querySelector("#path7402"),
     };
+    this.update();
   }
 
-  changeColor(color) {
+  update(color = this.base) {
     this.#sky.changeColor(color);
     this.#planet.base.style.fill = color.mix(this.base, 0.7);
     this.#planet.highlight.style.fill = color.mix(this.base, 0.5);

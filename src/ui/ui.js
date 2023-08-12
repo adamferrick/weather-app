@@ -44,7 +44,7 @@ export default class Ui {
       this.#slider.addImage(el);
       return new b(el, baseColor);
     });
-    this.#backgrounds.forEach(e => e.changeColor(new Color(nightColor)));
+    this.#backgrounds.forEach(e => e.update(new Color(nightColor)));
     this.#slider.displayImage(0);
   }
 
@@ -63,6 +63,6 @@ export default class Ui {
 
     document.documentElement.style.setProperty("--foreground-alt", color);
 
-    this.#backgrounds.forEach(e => e.changeColor(color));
+    this.#backgrounds.forEach(e => e.update(color));
   }
 }
