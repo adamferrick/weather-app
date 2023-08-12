@@ -87,7 +87,7 @@ input {
     z-index: -1;
 }
 
-#background * {
+.background * {
     transition: fill var(--animation);
 }
 
