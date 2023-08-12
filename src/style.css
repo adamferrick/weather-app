@@ -85,6 +85,7 @@ input {
     left: 0px;
     position: absolute;
     z-index: -1;
+    transition: opacity var(--animation);
 }
 
 .background * {
@@ -120,8 +121,4 @@ input {
 
 .dot.displayed circle {
     fill: var(--background-alt2);
-}
-
-.background {
-    transition: opacity var(--animation);
 }
