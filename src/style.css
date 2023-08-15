@@ -11,8 +11,6 @@
 body {
     padding: 1px;
     margin: 0px;
-    width: 99vw;
-    height: 99vh;
     background-color: var(--background);
 }
 
@@ -83,9 +81,11 @@ input {
 .background {
     top: 0px;
     left: 0px;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     transition: opacity var(--animation);
+    width: max(100vw, calc(100vh * 16 / 9));
+    height: max(100vh, calc(100vw * 9 / 16));
 }
 
 .background * {
