@@ -97,8 +97,15 @@ input {
 }
 
 .slider-navigation {
-    color: var(--background-alt2);
-    margin: auto;
+    background-color: var(--background);
+    border-radius: 10px;
+    padding: 6px;
+    opacity: 60%;
+    transition: opacity var(--animation);
+}
+
+.slider-navigation:hover {
+    opacity: 100%;
 }
 
 .slider-navigation button {
@@ -116,9 +123,9 @@ input {
 }
 
 .slider-navigation circle, .slider-navigation path {
-    stroke: var(--background-alt2) !important;
+    stroke: var(--foreground) !important;
 }
 
 .dot.displayed circle {
-    fill: var(--background-alt2);
+    fill: var(--foreground);
 }
