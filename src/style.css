@@ -12,6 +12,7 @@ body {
     padding: 1px;
     margin: 0px;
     background-color: var(--background);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";   
 }
 
 .box {
