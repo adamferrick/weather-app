@@ -16,7 +16,7 @@ export default class Slider {
     this.#images = [];
 
     const sliderNavigation = document.createElement('span');
-    sliderNavigation.className = 'slider-navigation';
+    sliderNavigation.className = 'slider-navigation panel';
     this.#dots = document.createElement('span');
 
     const prevButton = document.createElement('button');

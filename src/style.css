@@ -21,16 +21,26 @@ body {
     width: 500px;
     color: var(--foreground);
     cursor: default;
+    font-size: 20px;
+    border-left: 0px solid var(--foreground-alt);
+}
+
+.panel {
     background-color: var(--background);
     border-radius: 10px;
-    font-size: 20px;
     opacity: 60%;
-    border-left: 0px solid var(--foreground-alt);
+    transition: opacity var(--animation);
+}
+
+.box.panel {
     transition: opacity var(--animation), border-left var(--animation);
 }
 
-.box:hover, .box:focus-within {
+.panel:hover, .box.panel:focus-within {
     opacity: 100%;
+}
+
+.box:hover, .box:focus-within {
     border-left: 6px solid var(--foreground-alt);
 }
 
@@ -98,15 +108,7 @@ input {
 }
 
 .slider-navigation {
-    background-color: var(--background);
-    border-radius: 10px;
     padding: 6px;
-    opacity: 60%;
-    transition: opacity var(--animation);
-}
-
-.slider-navigation:hover {
-    opacity: 100%;
 }
 
 .slider-navigation button {
