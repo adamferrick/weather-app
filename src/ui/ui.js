@@ -2,7 +2,7 @@ import Color from "color";
 
 import Thermometer from "./thermometer/thermometer.js";
 import Slider from "./slider/slider.js";
-import { Mountains, Planets } from "./background/background.js";
+import { Mountains, Planets, Tree } from "./background/background.js";
 
 const secondsInDay = 86400;
 
@@ -38,7 +38,7 @@ export default class Ui {
     this.#thermometer = new Thermometer(this.#elements.thermometer);
 
     this.#slider = new Slider(this.#elements.slider);
-    this.#backgrounds = [Mountains, Planets].map(b => {
+    this.#backgrounds = [Mountains, Planets, Tree].map(b => {
       const el = document.createElement("div");
       el.className = "background";
       this.#slider.addImage(el);

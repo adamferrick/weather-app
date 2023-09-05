@@ -1,6 +1,7 @@
 import Color from "color";
 import mountainsRaw from "./mountains.svg";
 import planetsRaw from "./planets.svg";
+import treeRaw from "./tree.svg";
 
 function fadeBackground(element, newBackground, dur) {
   let temp = element.cloneNode(true);
@@ -109,5 +110,36 @@ export class Planets extends Background {
     this.#moon1.highlight.style.fill = color.mix(this.base, 0.4);
     this.#moon2.base.style.fill = color.mix(this.base, 0.65);
     this.#moon2.highlight.style.fill = color.mix(this.base, 0.45);
+  }
+}
+
+export class Tree extends Background {
+  #sky;
+  #hill;
+  #tree;
+
+  constructor(el, base) {
+    super(el, base, treeRaw);
+    const skyEl = document.createElement("div");
+    this.#sky = new Sky(skyEl, base);
+    el.prepend(skyEl);
+    this.#hill = {
+      base: this.el.querySelector("#path387"),
+      highlight: this.el.querySelector("#path383"),
+    };
+    this.#tree = {
+      branches: this.el.querySelector("#path9268"),
+      brightLeaves: this.el.querySelector("#path6776"),
+      darkLeaves: this.el.querySelector("#path6890"),
+    };
+  }
+
+  update(color = this.base) {
+    this.#sky.changeColor(color);
+    this.#hill.base.style.fill = color.mix(this.base, 0.8);
+    this.#hill.highlight.style.fill = color.mix(this.base, 0.7);
+    this.#tree.branches.style.fill = color;
+    this.#tree.brightLeaves.style.fill = color.mix(this.base, 0.75);
+    this.#tree.darkLeaves.style.fill = color.mix(this.base, 0.65);
   }
 }
