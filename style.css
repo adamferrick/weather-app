@@ -1,0 +1,138 @@
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
+  \*****************************************************************/
+:root {
+    --background: #0f141a;
+    --background-alt1: #172533;
+    --background-alt2: #485251;
+    --foreground: #f6f6f6;
+    --foreground-alt: #396c9e;
+
+    --animation: 0.2s ease-in-out;
+}
+
+body {
+    padding: 1px;
+    margin: 0px;
+    background-color: var(--background);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";   
+}
+
+.box {
+    margin: 15px;
+    padding: 10px;
+    width: 500px;
+    color: var(--foreground);
+    cursor: default;
+    font-size: 20px;
+    border-left: 0px solid var(--foreground-alt);
+}
+
+.panel {
+    background-color: var(--background);
+    border-radius: 10px;
+    opacity: 60%;
+    transition: opacity var(--animation);
+}
+
+.box.panel {
+    transition: opacity var(--animation), border-left var(--animation);
+}
+
+.panel:hover, .box.panel:focus-within {
+    opacity: 100%;
+}
+
+.box:hover, .box:focus-within {
+    border-left: 6px solid var(--foreground-alt);
+}
+
+form {
+    display: flex;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--foreground);
+}
+
+button svg {
+    width: 24px;
+    height: 24px;
+}
+
+input {
+    flex: 1 1 auto;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    color: var(--foreground);
+    background-color: var(--background-alt2);
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+#weather-information {
+    display: flex;
+    justify-content: space-between;
+}
+
+#weather-text div {
+    margin: 15px;
+}
+
+#mercury {
+    fill: var(--foreground-alt);
+    transition: fill var(--animation);
+}
+
+#mercury #column {
+    transition: height var(--animation), y var(--animation);
+}
+
+.background {
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    z-index: -1;
+    transition: opacity var(--animation);
+    width: max(100vw, calc(100vh * 16 / 9));
+    height: max(100vh, calc(100vw * 9 / 16));
+}
+
+.background * {
+    transition: fill var(--animation);
+}
+
+#slider {
+    text-align: center;
+}
+
+.slider-navigation {
+    padding: 6px;
+}
+
+.slider-navigation button {
+    outline: none;
+    opacity: 60%;
+}
+
+.slider-navigation button:hover {
+    opacity: 100%;
+}
+
+.slider-navigation svg {
+    width: 10px;
+    height: 10px;
+}
+
+.slider-navigation circle, .slider-navigation path {
+    stroke: var(--foreground) !important;
+}
+
+.dot.displayed circle {
+    fill: var(--foreground);
+}
+
