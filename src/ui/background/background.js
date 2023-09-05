@@ -80,7 +80,6 @@ export class Planets extends Background {
   #planet;
   #moon1;
   #moon2;
-  #hill;
 
   constructor(el, base) {
     super(el, base, planetsRaw);
@@ -99,10 +98,6 @@ export class Planets extends Background {
       base: this.el.querySelector("#path30241"),
       highlight: this.el.querySelector("#circle31349"),
     };
-    this.#hill = {
-      face: this.el.querySelector("#path7408"),
-      shadow: this.el.querySelector("#path7402"),
-    };
     this.update();
   }
 
@@ -110,11 +105,9 @@ export class Planets extends Background {
     this.#sky.changeColor(color);
     this.#planet.base.style.fill = color.mix(this.base, 0.7);
     this.#planet.highlight.style.fill = color.mix(this.base, 0.5);
-    this.#moon1.base.style.fill = color.mix(this.base, 0.7);
-    this.#moon1.highlight.style.fill = color.mix(this.base, 0.5);
-    this.#moon2.base.style.fill = color.mix(this.base, 0.7);
-    this.#moon2.highlight.style.fill = color.mix(this.base, 0.5);
-    this.#hill.face.style.fill = color.mix(this.base, 0.6);
-    this.#hill.shadow.style.fill = color.mix(this.base, 0.7);
+    this.#moon1.base.style.fill = color.mix(this.base, 0.6);
+    this.#moon1.highlight.style.fill = color.mix(this.base, 0.4);
+    this.#moon2.base.style.fill = color.mix(this.base, 0.65);
+    this.#moon2.highlight.style.fill = color.mix(this.base, 0.45);
   }
 }
